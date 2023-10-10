@@ -1,1 +1,1 @@
-console.log("test1");
+(()=>{"use strict";function t(t,e,i,o){return{title:t,description:e,dueDate:i,priority:o}}let e=[],i=t("test_title","test description blah","10:00PM","high");e.push(i),console.log(i),document.getElementById("add-todo").addEventListener("click",(()=>{let i=t(prompt("give title fam"),prompt("give description fam"),prompt("give duedate fam"),prompt("give priority fam"));e.push(i),console.log(e)}))})();
