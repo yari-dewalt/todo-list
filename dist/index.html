@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
-    <div id="content"></div>
+    <header class="header">
+        <div class="logo">
+            <img src="" alt="header-logo-icon">
+            <h1>Todo List</h1>
+        </div>
+    </header>
+    <main class="main">
+        <nav id="nav">
+            <ul class="categories">
+                <button id="inbox">Inbox</button>
+                <button id="today">Today</button>
+                <button id="week">This week</button>
+            </ul>
+            <h2>Projects</h2>
+            <button id="add-project">+ Add Project</button>
+        </nav>
+        <div id="content">
+            <button id="add-todo">+ Add Task</button>
+        </div>
+    </main>
+    <footer class="footer"></footer>
 </body>
 </html>
