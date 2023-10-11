@@ -44,3 +44,17 @@ footer {
     background: black;
     flex-grow: 1;
 }
+
+main > content > div.todo {
+    display: flex;
+    flex-direction: column;
+
+}
+
+div.todo > h3 {
+    margin: 0;
+}
+
+div.todo > p {
+    margin: 0;
+}
