@@ -4,6 +4,7 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    font-family: "Roboto", sans-serif; 
 }
 
 header {
@@ -32,29 +33,95 @@ main > nav {
     background-color: lightblue;
 }
 
-main > nav > ul {
-    padding: 0;
-
-    display: flex;
-    flex-direction: column;
-}
-
 footer {
     max-height: 60px;
     background: black;
     flex-grow: 1;
 }
 
-main > content > div.todo {
-    display: flex;
-    flex-direction: column;
-
+main > div#content {
+    width: 100%;
+    padding: 20px 40px 20px 40px;
 }
 
-div.todo > h3 {
-    margin: 0;
+main > div#content > div.todo {
+    display: grid;
+    grid-template-columns: 8fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0px 8px 0px;
+    padding: 6px;
+    border-bottom: solid grey 1px;
 }
 
-div.todo > p {
+div.todo:hover,
+div.todo:hover .remove_button {
+    background-color: grey;
+    border-radius: 8px;
+}
+
+div.todo > .todo-title {
     margin: 0;
+    grid-column: 1;
+}
+
+div.todo > .todo-description {
+    margin: 0;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+div.todo > .todo-duedate {
+    grid-column: 2;
+    grid-row: span 2;
+}
+
+div.todo > .remove_button {
+    grid-column: 3;
+    grid-row: span 2;
+    width: 24px;
+    padding: 0;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+    justify-self: center;
+}
+
+.remove_button:hover {
+    cursor: pointer;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+form > input {
+    height: 30px;
+    border: solid grey 1px;
+    border-radius: 6px;
+}
+
+form > input.title {
+    grid-column: span 2;
+    grid-row: 1;
+}
+
+form > input.description {
+    grid-column: span 2;
+    grid-row: 2;
+}
+
+form > button.submit {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+form > button.cancel {
+    grid-column: 2;
+    grid-row: 3;
 }
