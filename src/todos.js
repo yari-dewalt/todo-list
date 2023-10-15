@@ -35,7 +35,7 @@ function updateTodoList(todo_list, addButton) {
         remove_button.className = "remove_button";
 
         remove_button.addEventListener("click", () => {
-            removeTodo(todo_list, todo, addButton);
+            removeTodo(todo_list, todo);
             updateTodoList(todo_list, addButton);
         })
 

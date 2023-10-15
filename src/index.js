@@ -1,16 +1,73 @@
+import { createProject } from "./projects.js";
+import { updateProjectList } from "./projects.js";
 import { createItem } from "./todos.js"
 import { updateTodoList } from "./todos.js";
 // import { createForm } from "./form.js";
 
+let project_list = [];
 let todo_list = [];
 
 const addButton = document.getElementById("add-todo");
+const addProject = document.getElementById("add-project");
+const projects = document.getElementById("projects");
 const content = document.getElementById("content");
+
+let selectedProject = createProject("Default");
+
+let project_array = document.getElementsByClassName("project");
+
+addProject.addEventListener("click", () => {
+    createProjectForm();
+    projects.removeChild(addProject);
+})
+
+for (let i = 0; i < project_array; i++) {
+    project_array[i].addEventListener("click", () => {
+        console.log(i);
+    });
+}
 
 addButton.addEventListener("click", () => {
     createForm();
     content.removeChild(addButton);
 })
+
+function createProjectForm() {
+    let form = document.createElement("form");
+
+    let name_input = document.createElement("input");
+    name_input.className = "name";
+    name_input.required = true;
+
+    let submit_button = document.createElement("button");
+    submit_button.type = "submit";
+    submit_button.className = "submit";
+    submit_button.innerHTML = "Add";
+
+    let cancel_button = document.createElement("button");
+    cancel_button.type = "button";
+    cancel_button.className = "cancel";
+    cancel_button.innerHTML = "Cancel";
+
+    form.appendChild(name_input);
+    form.appendChild(submit_button);
+    form.appendChild(cancel_button);
+
+    projects.appendChild(form);
+
+    form.addEventListener("submit", (event) => {
+        let new_project = createProject(name_input.value);
+        selectedProject = new_project;
+        project_list.push(new_project);
+        updateProjectList(project_list, addProject);
+        event.preventDefault();
+    })
+    
+    cancel_button.addEventListener("click", () => {
+        projects.removeChild(form);
+        projects.appendChild(addProject);
+    })
+}
 
 function createForm() {
     let form = document.createElement("form");
@@ -42,9 +99,9 @@ function createForm() {
 
     form.addEventListener("submit", (event) => {
         let new_todo = createItem(title_input.value, description_input.value, "duedate", "high");
-        todo_list.push(new_todo);
-        updateTodoList(todo_list, addButton);
-        console.log(todo_list);
+        selectedProject.list.push(new_todo);
+        updateTodoList(selectedProject.list, addButton);
+        console.log(selectedProject.list);
         event.preventDefault();
     })
 
@@ -53,3 +110,11 @@ function createForm() {
         content.appendChild(addButton);
     })
 }
+
+function selectProject(project) {
+    selectedProject = project;
+    updateTodoList(selectedProject.list, addButton);
+    console.log(selectedProject);
+}
+
+export { selectProject };
