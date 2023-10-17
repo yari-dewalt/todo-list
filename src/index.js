@@ -2,10 +2,8 @@ import { createProject } from "./projects.js";
 import { updateProjectList } from "./projects.js";
 import { createItem } from "./todos.js"
 import { updateTodoList } from "./todos.js";
-// import { createForm } from "./form.js";
 
 let project_list = [];
-let todo_list = [];
 
 const addButton = document.getElementById("add-todo");
 const addProject = document.getElementById("add-project");
