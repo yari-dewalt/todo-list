@@ -29,6 +29,12 @@ function updateTodoList(todo_list, addButton) {
         let due_date = document.createElement("input");
         due_date.setAttribute("type", "datetime-local");
         due_date.className = "todo-duedate";
+        due_date.value = todo.dueDate;
+
+        due_date.addEventListener("input", () => {
+            todo.dueDate = due_date.value;
+            updateTodoList(todo_list, addButton);
+        })
 
         let remove_button = document.createElement("button");
         remove_button.innerHTML = "X";
