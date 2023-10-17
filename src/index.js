@@ -14,18 +14,10 @@ const content = document.getElementById("content");
 
 let selectedProject = createProject("Default");
 
-let project_array = document.getElementsByClassName("project");
-
 addProject.addEventListener("click", () => {
     createProjectForm();
     projects.removeChild(addProject);
 })
-
-for (let i = 0; i < project_array; i++) {
-    project_array[i].addEventListener("click", () => {
-        console.log(i);
-    });
-}
 
 addButton.addEventListener("click", () => {
     createForm();
@@ -113,6 +105,13 @@ function createForm() {
 
 function selectProject(project) {
     selectedProject = project;
+
+    project_list.forEach(project => {
+        project.active = false;
+    })
+
+    selectedProject.active = true;
+    updateProjectList(project_list, addProject);
     updateTodoList(selectedProject.list, addButton);
     console.log(selectedProject);
 }

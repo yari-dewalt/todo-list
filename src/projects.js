@@ -3,7 +3,8 @@ import { selectProject } from ".";
 function createProject(name) {
     const project = {
         "name": name,
-        "list": []
+        "list": [],
+        "active": false
     }
 
     return project;
@@ -34,6 +35,10 @@ function updateProjectList(project_list, addButton) {
             removeProject(project_list, project);
             updateProjectList(project_list, addButton);
         })
+
+        if (project.active == true) {
+            div.className = "project active";
+        }
 
         div.appendChild(name);
         div.appendChild(remove_button);
