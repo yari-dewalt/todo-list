@@ -50,6 +50,20 @@ function updateProjectList(project_list, addButton) {
 }
 
 function removeProject(project_list, project) {
+    if (project_list.length == 1) {
+        project_list.splice(project_list.indexOf(project), 1);
+        selectProject(createProject("Default"));
+        return;
+    }
+    if (project.active == true) {
+        if (project_list[project_list.indexOf(project) - 1] == undefined) {
+            selectProject(project_list[project_list.indexOf(project) + 1]);
+            project_list.splice(project_list.indexOf(project), 1);
+            return;
+        }
+        selectProject(project_list[project_list.indexOf(project) - 1]);
+    }
+    
     project_list.splice(project_list.indexOf(project), 1);
 }
 

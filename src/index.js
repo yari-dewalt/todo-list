@@ -49,9 +49,8 @@ function createProjectForm() {
 
     form.addEventListener("submit", (event) => {
         let new_project = createProject(name_input.value);
-        selectedProject = new_project;
         project_list.push(new_project);
-        updateProjectList(project_list, addProject);
+        selectProject(new_project);
         event.preventDefault();
     })
     
@@ -93,7 +92,6 @@ function createForm() {
         let new_todo = createItem(title_input.value, description_input.value, "duedate", "high");
         selectedProject.list.push(new_todo);
         updateTodoList(selectedProject.list, addButton);
-        console.log(selectedProject.list);
         event.preventDefault();
     })
 
@@ -113,7 +111,6 @@ function selectProject(project) {
     selectedProject.active = true;
     updateProjectList(project_list, addProject);
     updateTodoList(selectedProject.list, addButton);
-    console.log(selectedProject);
 }
 
 export { selectProject };
