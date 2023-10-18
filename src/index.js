@@ -68,6 +68,7 @@ function createForm() {
 
     let description_input = document.createElement("input");
     description_input.className = "description";
+    description_input.placeholder = "Description";
 
     let submit_button = document.createElement("button");
     submit_button.type = "submit";
