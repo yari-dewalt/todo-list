@@ -89,7 +89,7 @@ function createForm() {
     form.addEventListener("submit", (event) => {
         let new_todo = createItem(title_input.value, description_input.value, "duedate", false);
         selectedProject.list.push(new_todo);
-        updateTodoList(selectedProject.list, addButton);
+        updateTodoList(selectedProject.name, selectedProject.list, addButton);
         event.preventDefault();
     })
 
@@ -108,7 +108,7 @@ function selectProject(project) {
 
     selectedProject.active = true;
     updateProjectList(project_list, addProject);
-    updateTodoList(selectedProject.list, addButton);
+    updateTodoList(selectedProject.name, selectedProject.list, addButton);
 }
 
 export { selectProject };
