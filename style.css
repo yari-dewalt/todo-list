@@ -1,0 +1,297 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif; 
+}
+
+nav {
+    padding: 20px;
+}
+
+nav > #projects {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+}
+
+nav > #projects > div.project {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    padding: 8px 20px 8px 20px;
+    height: 20px;
+}
+
+div.project.active {
+    background-color: grey;
+    border-radius: 8px;
+}
+
+div.project > h3 {
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+div.project > h3:hover {
+    cursor: pointer;
+}
+
+div.project .remove_button {
+    font-size: 1rem;
+    width: 10px;
+}
+
+div.project:hover .remove_button {
+    display: block;
+    grid-column: 2;
+    margin-left: 10px;
+}
+
+button#add-project {
+    margin-top: 20px;
+}
+
+button#add-project,
+button#add-todo {
+    border-color: transparent;
+    border-radius: 8px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
+button#add-project:hover,
+button#add-todo:hover {
+    background-color: grey;
+    height: 40px;
+    cursor: pointer;
+}
+
+#projects > form {
+    margin-top: 20px;
+}
+
+#projects > form > input.name {
+    grid-column: span 2;
+    grid-row: 1;
+}
+
+#projects > form > button.submit {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#projects > form > button.cancel {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+header {
+    background-color: rgb(44, 44, 44);
+    max-height: 100px;
+    flex-grow: 1;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+header > div.logo {
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    gap: 1rem;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.material-symbols-outlined {
+    font-size: 2rem;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+}
+
+main > nav {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    background-color: rgb(190, 189, 189);
+}
+
+footer {
+    max-height: 60px;
+    background: rgb(44, 44, 44);
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+}
+
+footer > p {
+    flex-shrink: 0;
+}
+
+footer > a > svg {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+main > div#content {
+    width: 100%;
+    padding: 20px 40px 20px 40px;
+}
+
+main > div#content > .project-header {
+    text-align: center;
+}
+
+main > div#content > #add-todo {
+    text-align: left;
+    width: 100%;
+    min-width: 120px;
+}
+
+main > div#content > div.todo {
+    display: grid;
+    grid-template-columns: 1fr 8fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0px 8px 0px;
+    padding: 6px;
+    border-bottom: solid grey 1px;
+}
+
+div.todo:hover,
+div.todo:hover .remove_button {
+    background-color: grey;
+    border-radius: 8px;
+}
+
+div.todo:hover .remove_button {
+    display: block;
+}
+
+div.todo .complete_button {
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    accent-color: rgb(44, 44, 44);
+}
+
+div.todo > .todo-title {
+    margin: 0;
+    grid-column: 2;
+    font-size: 1.5rem;
+}
+
+div.todo > .todo-description {
+    margin: 0;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+div.todo > .todo-duedate {
+    grid-column: 3;
+    grid-row: span 2;
+}
+
+.remove_button {
+    grid-column: 4;
+    grid-row: span 2;
+    width: 24px;
+    padding: 0;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+    justify-self: center;
+    background-color: rgba(0, 0, 0, 0);
+    display: none;
+}
+
+.remove_button:hover {
+    cursor: pointer;
+}
+
+.complete_button {
+    height: 30px;
+    width: 30px;
+    justify-self: center;
+}
+
+.complete_button:hover {
+    cursor: pointer;
+}
+
+div.todo.completed h3,
+div.todo.completed p {
+    color: rgb(71, 71, 71);
+    text-decoration: line-through;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+form > input {
+    height: 36px;
+    border: solid grey 1px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+form > input.title {
+    grid-column: span 2;
+    grid-row: 1;
+}
+
+form > input.description {
+    grid-column: span 2;
+    grid-row: 2;
+}
+
+form > button.submit {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+form > button.cancel {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+button.submit,
+button.cancel {
+    border: transparent;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+button.submit:hover,
+button.cancel:hover {
+    cursor: pointer;
+}
+
+button.submit {
+    background-color: rgb(117, 230, 113);
+}
+
+button.cancel {
+    background-color: rgb(235, 133, 133);
+}
