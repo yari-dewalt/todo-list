@@ -9,9 +9,15 @@ function createItem(title, description, dueDate, priority) {
     return todo;
 }
 
-function updateTodoList(todo_list, addButton) {
+function updateTodoList(project_name, todo_list, addButton) {
     while (content.firstChild) {
         content.removeChild(content.lastChild);
+    }
+
+    if (project_name != "Default") {
+        let project_header = document.createElement("h1");
+        project_header.textContent = project_name;
+        content.appendChild(project_header);
     }
 
     todo_list.forEach((todo) => {
@@ -33,7 +39,7 @@ function updateTodoList(todo_list, addButton) {
 
         due_date.addEventListener("input", () => {
             todo.dueDate = due_date.value;
-            updateTodoList(todo_list, addButton);
+            updateTodoList(project_name, todo_list, addButton);
         })
 
         let complete_button = document.createElement("input");
@@ -43,12 +49,12 @@ function updateTodoList(todo_list, addButton) {
         complete_button.addEventListener("change", (event) => {
             if (todo.completed == false) {
                 todo.completed = true;
-                updateTodoList(todo_list, addButton);
+                updateTodoList(project_name, todo_list, addButton);
             }
             
             else if (todo.completed == true) {
                 todo.completed = false;
-                updateTodoList(todo_list, addButton);
+                updateTodoList(project_name, todo_list, addButton);
             }
         })
 
@@ -58,7 +64,7 @@ function updateTodoList(todo_list, addButton) {
 
         remove_button.addEventListener("click", () => {
             removeTodo(todo_list, todo);
-            updateTodoList(todo_list, addButton);
+            updateTodoList(project_name, todo_list, addButton);
         })
 
         div.appendChild(title);
