@@ -3,7 +3,7 @@ function createItem(title, description, dueDate, priority) {
         "title": title,
         "description": description,
         "dueDate": dueDate,
-        "priority": priority
+        "completed": false
     }
 
     return todo;
@@ -36,6 +36,22 @@ function updateTodoList(todo_list, addButton) {
             updateTodoList(todo_list, addButton);
         })
 
+        let complete_button = document.createElement("input");
+        complete_button.type = "checkbox";
+        complete_button.className = "complete_button";
+
+        complete_button.addEventListener("change", (event) => {
+            if (todo.completed == false) {
+                todo.completed = true;
+                updateTodoList(todo_list, addButton);
+            }
+            
+            else if (todo.completed == true) {
+                todo.completed = false;
+                updateTodoList(todo_list, addButton);
+            }
+        })
+
         let remove_button = document.createElement("button");
         remove_button.innerHTML = "X";
         remove_button.className = "remove_button";
@@ -48,7 +64,14 @@ function updateTodoList(todo_list, addButton) {
         div.appendChild(title);
         div.appendChild(description);
         div.appendChild(due_date);
+        div.appendChild(complete_button);
         div.appendChild(remove_button);
+
+        if (todo.completed) {
+            complete_button.checked = true;
+            title.style.textDecoration = "line-through";
+            description.style.textDecoration = "line-through";
+        }
     
         content.appendChild(div);
     })
