@@ -106,6 +106,7 @@ header > div.logo {
     padding-left: 2rem;
     gap: 1rem;
     font-size: 1.8rem;
+    flex-shrink: 0;
 }
 
 .material-symbols-outlined {
@@ -138,6 +139,10 @@ footer {
     color: white;
 }
 
+footer > p {
+    flex-shrink: 0;
+}
+
 footer > a > svg {
     -webkit-filter: invert(100%);
     filter: invert(100%);
@@ -155,6 +160,7 @@ main > div#content > .project-header {
 main > div#content > #add-todo {
     text-align: left;
     width: 100%;
+    min-width: 120px;
 }
 
 main > div#content > div.todo {
