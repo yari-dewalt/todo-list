@@ -69,8 +69,7 @@ function updateTodoList(todo_list, addButton) {
 
         if (todo.completed) {
             complete_button.checked = true;
-            title.style.textDecoration = "line-through";
-            description.style.textDecoration = "line-through";
+            div.className = "todo completed";
         }
     
         content.appendChild(div);
