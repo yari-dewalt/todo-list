@@ -1,3 +1,5 @@
+import { project_list } from ".";
+
 function createItem(title, description, dueDate, priority) {
     const todo = {
         "title": title,
@@ -83,6 +85,7 @@ function updateTodoList(project_name, todo_list, addButton) {
     })
 
     content.appendChild(addButton);
+    localStorage.setItem("projects", JSON.stringify(project_list));
 }
 
 function removeTodo(todo_list, todo) {

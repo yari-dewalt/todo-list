@@ -3,7 +3,11 @@ import { updateProjectList } from "./projects.js";
 import { createItem } from "./todos.js"
 import { updateTodoList } from "./todos.js";
 
-let project_list = [];
+let project_list = JSON.parse(localStorage.getItem("projects"));
+
+if (localStorage.getItem("projects") == null) {
+    project_list = [];
+}
 
 const addButton = document.getElementById("add-todo");
 const addProject = document.getElementById("add-project");
@@ -11,6 +15,13 @@ const projects = document.getElementById("projects");
 const content = document.getElementById("content");
 
 let selectedProject = createProject("Default");
+
+project_list.forEach(project => {
+    if (project.active == true) {
+        selectedProject = project;
+        updateTodoList(selectedProject.name, selectedProject.list, addButton);
+    }
+})
 
 addProject.addEventListener("click", () => {
     createProjectForm();
@@ -21,6 +32,8 @@ addButton.addEventListener("click", () => {
     createForm();
     content.removeChild(addButton);
 })
+
+updateProjectList(project_list, addProject);
 
 function createProjectForm() {
     let form = document.createElement("form");
@@ -113,3 +126,4 @@ function selectProject(project) {
 }
 
 export { selectProject };
+export { project_list};

@@ -47,6 +47,7 @@ function updateProjectList(project_list, addButton) {
     })
 
     projects.appendChild(addButton);
+    localStorage.setItem("projects", JSON.stringify(project_list));
 }
 
 function removeProject(project_list, project) {
