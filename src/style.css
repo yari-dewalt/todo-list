@@ -90,7 +90,7 @@ main > div#content {
 
 main > div#content > div.todo {
     display: grid;
-    grid-template-columns: 8fr 2fr 1fr;
+    grid-template-columns: 1fr 8fr 2fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
     gap: 10px;
@@ -109,24 +109,30 @@ div.todo:hover .remove_button {
     display: block;
 }
 
+div.todo .complete_button {
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
 div.todo > .todo-title {
     margin: 0;
-    grid-column: 1;
+    grid-column: 2;
 }
 
 div.todo > .todo-description {
     margin: 0;
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 2;
 }
 
 div.todo > .todo-duedate {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: span 2;
 }
 
 .remove_button {
-    grid-column: 3;
+    grid-column: 4;
     grid-row: span 2;
     width: 24px;
     padding: 0;
