@@ -87,7 +87,7 @@ function createForm() {
     content.appendChild(form);
 
     form.addEventListener("submit", (event) => {
-        let new_todo = createItem(title_input.value, description_input.value, "duedate", "high");
+        let new_todo = createItem(title_input.value, description_input.value, "duedate", false);
         selectedProject.list.push(new_todo);
         updateTodoList(selectedProject.list, addButton);
         event.preventDefault();
