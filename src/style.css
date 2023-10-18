@@ -22,18 +22,58 @@ nav > #projects > div.project {
     grid-template-columns: 6fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
+    padding: 8px 20px 8px 20px;
+    height: 20px;
 }
 
 div.project.active {
     background-color: grey;
+    border-radius: 8px;
 }
+
+div.project > h3 {
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 
 div.project > h3:hover {
     cursor: pointer;
 }
 
+div.project .remove_button {
+    font-size: 1rem;
+    width: 10px;
+}
+
 div.project:hover .remove_button {
     display: block;
+    grid-column: 2;
+    margin-left: 10px;
+}
+
+button#add-project {
+    margin-top: 20px;
+}
+
+button#add-project,
+button#add-todo {
+    border-color: transparent;
+    border-radius: 8px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
+button#add-project:hover,
+button#add-todo:hover {
+    background-color: grey;
+    height: 40px;
+    cursor: pointer;
+}
+
+#projects > form {
+    margin-top: 20px;
 }
 
 #projects > form > input.name {
@@ -52,14 +92,24 @@ div.project:hover .remove_button {
 }
 
 header {
-    background-color: gray;
+    background-color: rgb(44, 44, 44);
     max-height: 100px;
     flex-grow: 1;
+    color: white;
+    display: flex;
+    align-items: center;
 }
 
 header > div.logo {
     display: flex;
     align-items: center;
+    padding-left: 2rem;
+    gap: 1rem;
+    font-size: 1.8rem;
+}
+
+.material-symbols-outlined {
+    font-size: 2rem;
 }
 
 main {
@@ -74,18 +124,37 @@ main > nav {
 
     align-items: center;
 
-    background-color: lightblue;
+    background-color: rgb(190, 189, 189);
 }
 
 footer {
     max-height: 60px;
-    background: black;
+    background: rgb(44, 44, 44);
     flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+}
+
+footer > a > svg {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 
 main > div#content {
     width: 100%;
     padding: 20px 40px 20px 40px;
+}
+
+main > div#content > .project-header {
+    text-align: center;
+}
+
+main > div#content > #add-todo {
+    text-align: left;
+    width: 100%;
 }
 
 main > div#content > div.todo {
@@ -113,11 +182,13 @@ div.todo .complete_button {
     grid-column: 1;
     grid-row-start: 1;
     grid-row-end: 3;
+    accent-color: rgb(44, 44, 44);
 }
 
 div.todo > .todo-title {
     margin: 0;
     grid-column: 2;
+    font-size: 1.5rem;
 }
 
 div.todo > .todo-description {
@@ -149,6 +220,16 @@ div.todo > .todo-duedate {
     cursor: pointer;
 }
 
+.complete_button {
+    height: 30px;
+    width: 30px;
+    justify-self: center;
+}
+
+.complete_button:hover {
+    cursor: pointer;
+}
+
 div.todo.completed h3,
 div.todo.completed p {
     color: rgb(71, 71, 71);
@@ -163,9 +244,10 @@ form {
 }
 
 form > input {
-    height: 30px;
+    height: 36px;
     border: solid grey 1px;
     border-radius: 6px;
+    font-weight: bold;
 }
 
 form > input.title {
@@ -186,4 +268,24 @@ form > button.submit {
 form > button.cancel {
     grid-column: 2;
     grid-row: 3;
+}
+
+button.submit,
+button.cancel {
+    border: transparent;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+button.submit:hover,
+button.cancel:hover {
+    cursor: pointer;
+}
+
+button.submit {
+    background-color: rgb(117, 230, 113);
+}
+
+button.cancel {
+    background-color: rgb(235, 133, 133);
 }
