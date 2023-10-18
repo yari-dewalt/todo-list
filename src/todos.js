@@ -16,6 +16,7 @@ function updateTodoList(project_name, todo_list, addButton) {
 
     if (project_name != "Default") {
         let project_header = document.createElement("h1");
+        project_header.className = "project-header";
         project_header.textContent = project_name;
         content.appendChild(project_header);
     }
